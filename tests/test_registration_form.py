@@ -22,4 +22,13 @@ class TestRegistration:
         butt__ = driver.find_element(*PersonalAccount.place_order).text
         assert driver.current_url == PageUrls.main_page and butt__
 
-
+    def test_registration_form_stella_bad_pass(self, driver):
+        driver.get(PageUrls.reg_page)
+        WebDriverWait(driver, 3).until(EC.visibility_of_element_located(RegistrationLocators.button_registr))
+        driver.find_element(*RegistrationLocators.name_field).send_keys(Person.name)
+        driver.find_element(*RegistrationLocators.email_field).send_keys(Person.email)
+        driver.find_element(*RegistrationLocators.password_field).send_keys(Person.password_bad)
+        driver.find_element(*RegistrationLocators.button_registr).click()
+        WebDriverWait(driver, 3).until(EC.visibility_of_element_located(RegistrationLocators.error_pass))
+        not_pass = driver.find_element(*RegistrationLocators.error_pass).text
+        assert not_pass == 'Некорректный пароль'
