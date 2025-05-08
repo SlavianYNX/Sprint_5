@@ -53,8 +53,3 @@ class TestLogin:
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located(PersonalAccount.place_order))
         place_orders = driver.find_element(*PersonalAccount.place_order).text
         assert place_orders == 'Оформить заказ'
-
-
-
-
-
