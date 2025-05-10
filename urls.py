@@ -1,6 +1,10 @@
 class PageUrls:
-    reg_page = 'https://stellarburgers.nomoreparties.site/register'
-    auth_page = 'https://stellarburgers.nomoreparties.site/login'
     main_page = 'https://stellarburgers.nomoreparties.site/'
-    forgot_page = 'https://stellarburgers.nomoreparties.site/forgot-password'
-    profile_page = 'https://stellarburgers.nomoreparties.site/account/profile'
+    registration = 'register'
+    forgot = 'forgot-password'
+    log_in = 'login'
+    profile_account = 'account/profile'
+    auth_page = main_page + log_in
+    reg_page = main_page + registration
+    forgot_page = main_page + forgot
+    profile_page = main_page + profile_account
