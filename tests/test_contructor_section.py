@@ -1,8 +1,8 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from tests.data import Person
-from tests.locators import AccountLogin, PersonalAccount
-from tests.urls import *
+from data import Person, ConstructionModuleData
+from locators import AccountLogin, PersonalAccount
+from urls import *
 
 
 class TestConstruction:
@@ -19,8 +19,8 @@ class TestConstruction:
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located(PersonalAccount.button_construct))
         driver.find_element(*PersonalAccount.button_construct).click()
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located(PersonalAccount.button_bun))
-        bun_butt = driver.find_element(*PersonalAccount.button_bun).text
-        assert bun_butt == 'Булки'
+        driver.find_element(*PersonalAccount.button_bun).text
+        assert ConstructionModuleData.Bun == 'Булки'
 
 
     def test_section_sauce(self, driver):
@@ -35,8 +35,8 @@ class TestConstruction:
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located(PersonalAccount.button_construct))
         driver.find_element(*PersonalAccount.button_construct).click()
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located(PersonalAccount.button_sauce))
-        sauce_butt = driver.find_element(*PersonalAccount.button_sauce).text
-        assert sauce_butt == 'Соусы'
+        driver.find_element(*PersonalAccount.button_sauce).text
+        assert ConstructionModuleData.Sauce == 'Соусы'
 
 
     def test_section_filling(self,driver):
@@ -51,5 +51,5 @@ class TestConstruction:
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located(PersonalAccount.button_construct))
         driver.find_element(*PersonalAccount.button_construct).click()
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located(PersonalAccount.button_filling))
-        filling_butt = driver.find_element(*PersonalAccount.button_filling).text
-        assert filling_butt == 'Начинки'
+        driver.find_element(*PersonalAccount.button_filling).text
+        assert ConstructionModuleData.Filling == 'Начинки'
