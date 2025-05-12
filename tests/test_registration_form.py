@@ -1,8 +1,8 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from tests.data import RandomData, Person
-from tests.locators import RegistrationLocators, AccountLogin, PersonalAccount
-from tests.urls import *
+from data import RandomData, Person
+from locators import RegistrationLocators, AccountLogin, PersonalAccount
+from urls import *
 
 
 class TestRegistration:
