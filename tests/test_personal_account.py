@@ -2,8 +2,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from data import Person
 from locators import AccountLogin, PersonalAccount
-from urls import *
-
+from urls import PageUrls
 
 class TestPersonalAccount:
 
