@@ -19,8 +19,8 @@ class TestConstruction:
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located(PersonalAccount.button_construct))
         driver.find_element(*PersonalAccount.button_construct).click()
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located(PersonalAccount.button_bun))
-        driver.find_element(*PersonalAccount.button_bun).text
-        assert ConstructionModuleData.Bun == 'Булки'
+        text_bun_but = driver.find_element(*PersonalAccount.button_bun).text
+        assert text_bun_but == ConstructionModuleData.Bun
 
 
     def test_section_sauce(self, driver):
@@ -35,8 +35,8 @@ class TestConstruction:
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located(PersonalAccount.button_construct))
         driver.find_element(*PersonalAccount.button_construct).click()
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located(PersonalAccount.button_sauce))
-        driver.find_element(*PersonalAccount.button_sauce).text
-        assert ConstructionModuleData.Sauce == 'Соусы'
+        text_sauce_but = driver.find_element(*PersonalAccount.button_sauce).text
+        assert text_sauce_but == ConstructionModuleData.Sauce
 
 
     def test_section_filling(self,driver):
@@ -51,5 +51,5 @@ class TestConstruction:
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located(PersonalAccount.button_construct))
         driver.find_element(*PersonalAccount.button_construct).click()
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located(PersonalAccount.button_filling))
-        driver.find_element(*PersonalAccount.button_filling).text
-        assert ConstructionModuleData.Filling == 'Начинки'
+        text_filling_but = driver.find_element(*PersonalAccount.button_filling).text
+        assert text_filling_but == ConstructionModuleData.Filling
