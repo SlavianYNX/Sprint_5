@@ -2,7 +2,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from data import RandomData, Person, ConstructionModuleData
 from locators import RegistrationLocators, AccountLogin, PersonalAccount
-from urls import *
+from urls import PageUrls
 
 
 class TestRegistration:
