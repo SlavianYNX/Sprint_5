@@ -15,3 +15,5 @@ class ConstructionModuleData:
     Bun = 'Булки'
     Sauce = 'Соусы'
     Filling = 'Начинки'
+    text_error_pass ='Некорректный пароль'
+    text_orders = 'Оформить заказ'
