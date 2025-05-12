@@ -1,6 +1,6 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from data import RandomData, Person
+from data import RandomData, Person, ConstructionModuleData
 from locators import RegistrationLocators, AccountLogin, PersonalAccount
 from urls import *
 
@@ -20,7 +20,7 @@ class TestRegistration:
         driver.find_element(*AccountLogin.button_enter).click()
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located(PersonalAccount.place_order))
         butt__ = driver.find_element(*PersonalAccount.place_order).text
-        assert driver.current_url == PageUrls.main_page and butt__
+        assert driver.current_url == PageUrls.main_page and butt__ == ConstructionModuleData.text_orders
 
     def test_registration_form_stella_bad_pass(self, driver):
         driver.get(PageUrls.reg_page)
@@ -31,4 +31,4 @@ class TestRegistration:
         driver.find_element(*RegistrationLocators.button_registr).click()
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located(RegistrationLocators.error_pass))
         not_pass = driver.find_element(*RegistrationLocators.error_pass).text
-        assert not_pass == 'Некорректный пароль'
+        assert driver.current_url == PageUrls.reg_page and not_pass == ConstructionModuleData.text_error_pass
