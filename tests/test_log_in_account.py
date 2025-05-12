@@ -1,6 +1,6 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from data import Person
+from data import Person, ConstructionModuleData
 from locators import AccountLogin, PersonalAccount
 from urls import *
 
@@ -15,8 +15,8 @@ class TestLogin:
         driver.find_element(*AccountLogin.pass_auth).send_keys(Person.password)
         driver.find_element(*AccountLogin.button_enter).click()
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located(PersonalAccount.place_order))
-        place_orders = driver.find_element(*PersonalAccount.place_order).is_displayed()
-        assert driver.current_url == PageUrls.main_page and place_orders
+        place_orders = driver.find_element(*PersonalAccount.place_order).text
+        assert driver.current_url == PageUrls.main_page and place_orders == ConstructionModuleData.text_orders
 
 
     def test_login_personal_account(self, driver):
@@ -28,7 +28,7 @@ class TestLogin:
         driver.find_element(*AccountLogin.button_enter).click()
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located(PersonalAccount.place_order))
         place_orders = driver.find_element(*PersonalAccount.place_order).text
-        assert place_orders == 'Оформить заказ'
+        assert place_orders == ConstructionModuleData.text_orders
 
 
     def test_login_enter_form_registration(self, driver):
@@ -40,7 +40,7 @@ class TestLogin:
         driver.find_element(*AccountLogin.button_enter).click()
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located(PersonalAccount.place_order))
         place_orders = driver.find_element(*PersonalAccount.place_order).text
-        assert place_orders == 'Оформить заказ'
+        assert driver.current_url == PageUrls.main_page and place_orders == ConstructionModuleData.text_orders
 
 
     def test_login_enter_form_forgot(self, driver):
@@ -52,4 +52,4 @@ class TestLogin:
         driver.find_element(*AccountLogin.button_enter).click()
         WebDriverWait(driver, 3).until(EC.visibility_of_element_located(PersonalAccount.place_order))
         place_orders = driver.find_element(*PersonalAccount.place_order).text
-        assert place_orders == 'Оформить заказ'
+        assert driver.current_url == PageUrls.main_page and place_orders == ConstructionModuleData.text_orders
